@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size:62.5%;
+    font-family: 'Noto Sans',sans-serif;
+    scroll-behavior: smooth;
+    width: 90%;
+    margin: auto;
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
