@@ -5,6 +5,18 @@
     flex-direction: $flex-direction;
 }
 
+$color1:hsl(227, 75%, 14%);
+$color2: hsl(226, 25%, 17%);
+$color3:hsl(225, 23%, 24%);
+$color4: hsl(226, 11%, 37%);
+$color5:hsl(0, 0%, 78%);
+$color6:hsl(217, 61%, 90%);
+$color7:hsl(0, 0%, 93%);
+$color8:hsl(200, 60%, 99%);
+$non-active:hsl(3, 86%, 64%);
+$active-btn:hsl(3, 71%, 56%);
+$active-hov:hsl(3, 77%, 44%);
+
 @import "global";
 @import "extention-container";
 

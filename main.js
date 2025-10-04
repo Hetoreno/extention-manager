@@ -13,10 +13,12 @@ fetch("data.json")
     for (let extention of extentions){
         out += `
             <div class="extent-cont">
-                <img src="${extention.logo}" alt="">
                 <div class="info">
-                    <h3>${extention.name}</h3>
-                    <p>${extention.description}</p>
+                    <img src="${extention.logo}" alt="">
+                    <div class ="descr">
+                        <h3>${extention.name}</h3>
+                        <p>${extention.description}</p>
+                    </div>
                 </div>
                 <span>
                   <button>Remove</button>  
