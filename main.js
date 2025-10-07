@@ -31,3 +31,26 @@ fetch("data.json")
 
     placeholder.innerHTML = out;
 })
+
+//filter function
+const tglBtn = document.querySelectorAll(".filter-btn");
+const list = document.querySelectorAll(".extent-cont");
+
+GamepadButton.forEach((event)=>{
+    event.addEventListner("click",()=>{
+        
+        for (let i=0; i<button.length; i++){
+            button[i].classList.remove("active");
+        }
+        event.classList.add("active");
+
+        list.forEach((current)=>{
+            current.style.display="none";
+            let pictures = event.textContent.toLowerCase();
+            if(current.getAttribute("data-att")===pictures || pictures === "all"){
+                current.style.display="block";
+            }
+        })
+    
+    })
+}

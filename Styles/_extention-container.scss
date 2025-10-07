@@ -5,14 +5,21 @@
          @include flex(center, center, row); 
          li{
             padding: 0.6rem;
-            background-color: green;
-            border-radius: 10px;
+            background: rgb(51, 63, 90);
+            border-radius: 35px;
+            font-size: 2.5rem;
+            margin: 0 0.5rem;
+            padding: 1rem;
          }
          li:hover{
             background:$active-hov ;
+            color: black;
          }
        }
+       
+    margin: 2rem;
     }
+    
     
 }
 
@@ -28,14 +35,24 @@
         width: 100%;
         border-radius: 15px;
         border: solid rgb(97, 97, 97) 1px;
-        @include flex(center,center,row);
+        height: 25vh;
+        
         .info{
+            @include flex(center,center,row);
             img{
                 width: 25%;
+                margin-right:1rem;
             }
             .descr{
                 width: 75%;
             }
+        }
+        span{
+            @include flex(center,space-between,row);
+        }
+
+        span,.info{
+            margin: 2rem;
         }
         
     }
