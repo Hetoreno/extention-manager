@@ -13,9 +13,9 @@ $color5:hsl(0, 0%, 78%);
 $color6:hsl(217, 61%, 90%);
 $color7:hsl(0, 0%, 93%);
 $color8:hsl(200, 60%, 99%);
-$non-active:hsl(3, 86%, 64%);
+$active:hsl(3, 86%, 64%);
 $active-hov:hsl(3, 71%, 56%);
-$active-btn:hsl(3, 77%, 44%);
+$active-click:hsl(3, 77%, 44%);
 
 @import "global";
 @import "extention-container";

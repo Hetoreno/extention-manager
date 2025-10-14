@@ -9,10 +9,9 @@ fetch("data.json")
 .then(function(extentions){
     let placeholder = document.querySelector("#data-output");
     let out = "";
-
     for (let extention of extentions){
         out += `
-            <div class="extent-cont">
+            <div class="extent-cont" data-att="${extention.isActive}">
                 <div class="info">
                     <img src="${extention.logo}" alt="">
                     <div class ="descr">
@@ -22,7 +21,10 @@ fetch("data.json")
                 </div>
                 <span>
                   <button>Remove</button>  
-                  <button>Remove</button>  
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
                 </span>
             </div>
         
@@ -32,25 +34,28 @@ fetch("data.json")
     placeholder.innerHTML = out;
 })
 
-//filter function
+
+
+
+
+
+// Filter function
 const tglBtn = document.querySelectorAll(".filter-btn");
 const list = document.querySelectorAll(".extent-cont");
 
-GamepadButton.forEach((event)=>{
-    event.addEventListner("click",()=>{
-        
-        for (let i=0; i<button.length; i++){
-            button[i].classList.remove("active");
-        }
-        event.classList.add("active");
+tglBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Reset all buttons
+    tglBtn.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
-        list.forEach((current)=>{
-            current.style.display="none";
-            let pictures = event.textContent.toLowerCase();
-            if(current.getAttribute("data-att")===pictures || pictures === "all"){
-                current.style.display="block";
-            }
-        })
-    
-    })
-}
+    const content = btn.textContent.toLowerCase();
+
+    list.forEach((current) => {
+      const attr = current.getAttribute("data-att").toLowerCase();
+      current.style.display =
+        content === "all" || attr === content ? "block" : "none";
+    });
+  });
+});
+

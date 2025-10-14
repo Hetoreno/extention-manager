@@ -52,9 +52,14 @@ p {
   font-size: 2.5rem;
   margin: 0 0.5rem;
   padding: 1rem;
+  cursor: pointer;
 }
-.extention-cont nav ul li:hover {
+.extention-cont nav ul li.active:hover {
   background: hsl(3, 71%, 56%);
+  color: black;
+}
+.extention-cont nav ul li.active {
+  background: hsl(3, 86%, 64%);
   color: black;
 }
 
@@ -67,7 +72,7 @@ p {
   row-gap: 15px;
 }
 .extentions-grid .extent-cont {
-  background: rgb(51, 63, 90);
+  background: hsl(226, 25%, 17%);
   width: 100%;
   border-radius: 15px;
   border: solid rgb(97, 97, 97) 1px;
@@ -92,8 +97,63 @@ p {
   justify-content: space-between;
   flex-direction: row;
 }
-.extentions-grid .extent-cont span, .extentions-grid .extent-cont .info {
-  margin: 2rem;
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(226, 11%, 37%);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: hsl(3, 86%, 64%);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 /*Desktop View*/
