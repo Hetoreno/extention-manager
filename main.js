@@ -11,7 +11,7 @@ fetch("data.json")
     let out = "";
     for (let extention of extentions){
         out += `
-            <div class="extent-cont" data-att="${extention.isActive}">
+            <div class="extent-cont" data-att="${extention.isActive ? 'active' : 'unactive'}">
                 <div class="info">
                     <img src="${extention.logo}" alt="">
                     <div class ="descr">
@@ -39,22 +39,29 @@ fetch("data.json")
 
 
 
-// Filter function
 const tglBtn = document.querySelectorAll(".filter-btn");
-const list = document.querySelectorAll(".extent-cont");
+const container = document.getElementById("data-output");
 
 tglBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // Reset all buttons
+    // Reset button states
     tglBtn.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
-    const content = btn.textContent.toLowerCase();
+    const content = btn.textContent.trim().toLowerCase();
+    const list = container.querySelectorAll(".extent-cont");
 
     list.forEach((current) => {
-      const attr = current.getAttribute("data-att").toLowerCase();
-      current.style.display =
-        content === "all" || attr === content ? "block" : "none";
+      let attr = current.getAttribute("data-att");
+
+      // Normalize boolean strings to match button text
+      attr = attr === "true" ? "active" : "unactive";
+
+      if (content === "all" || attr === content) {
+        current.style.display = "block";
+      } else {
+        current.style.display = "none";
+      }
     });
   });
 });
