@@ -22,7 +22,7 @@ fetch("data.json")
                 <span>
                   <button>Remove</button>  
                   <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" class="switchT">
                     <span class="slider round"></span>
                 </label>
                 </span>
@@ -48,21 +48,14 @@ tglBtn.forEach((btn) => {
     tglBtn.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
-    const content = btn.textContent.trim().toLowerCase();
-    const list = container.querySelectorAll(".extent-cont");
-
-    list.forEach((current) => {
-      let attr = current.getAttribute("data-att");
-
-      // Normalize boolean strings to match button text
-      attr = attr === "true" ? "active" : "unactive";
-
-      if (content === "all" || attr === content) {
-        current.style.display = "block";
-      } else {
-        current.style.display = "none";
-      }
-    });
+    
   });
 });
 
+const filterBtn = document.querySelectorAll(".slider.round");
+
+filterBtn.forEach((swt) => {
+  swt.addEventListener("click", () => {
+    console.log("This is a test.");
+  });
+});
