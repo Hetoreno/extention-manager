@@ -32,6 +32,17 @@ fetch("data.json")
     }
 
     placeholder.innerHTML = out;
+
+
+
+
+    const filterBtn = document.querySelectorAll(".slider.round");
+
+filterBtn.forEach((swt) => {
+  swt.addEventListener("click", () => {
+    console.log("This is a test.");
+  });
+});
 })
 
 
@@ -52,10 +63,3 @@ tglBtn.forEach((btn) => {
   });
 });
 
-const filterBtn = document.querySelectorAll(".slider.round");
-
-filterBtn.forEach((swt) => {
-  swt.addEventListener("click", () => {
-    console.log("This is a test.");
-  });
-});
