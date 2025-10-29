@@ -58,7 +58,13 @@ tglBtn.forEach((btn) => {
     tglBtn.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
-    
+    //work on progress fixxxxxxxxxxxxxxxxxxx
+    filterBtn.forEach((swt) => {
+      if (btn.classList.contains('enabled') && swt.classList.contains('enabled')) {
+        console.log("they’re enabled");
+      }
+
+     });
 
     
   });
