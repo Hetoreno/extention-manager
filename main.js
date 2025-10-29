@@ -36,28 +36,29 @@ fetch("data.json")
 
 
 
-    const filterBtn = document.querySelectorAll(".slider.round");
+  const filterBtn = document.querySelectorAll(".slider.round");
+  filterBtn.forEach((swt) => {
+    swt.addEventListener("click", () => {
 
-filterBtn.forEach((swt) => {
-  swt.addEventListener("click", () => {
-    console.log("This is a test.");
+      console.log("This is a test.");
+      swt.classList.toggle("enabled");
+          
+    });
   });
-});
+
 })
 
-
-
-
-
-
+//Filter button
 const tglBtn = document.querySelectorAll(".filter-btn");
-const container = document.getElementById("data-output");
+const extCard = document.querySelectorAll(".extent-cont");
 
 tglBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     // Reset button states
     tglBtn.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
+
+    
 
     
   });
