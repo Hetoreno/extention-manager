@@ -35,7 +35,7 @@ fetch("data.json")
 
 
 
-
+    console.log("theyre disabled");
   const filterBtn = document.querySelectorAll(".slider.round");
   filterBtn.forEach((swt) => {
     swt.addEventListener("click", () => {
