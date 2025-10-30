@@ -20,7 +20,7 @@ fetch("data.json")
                     </div>
                 </div>
                 <span>
-                  <button>Remove</button>  
+                  <button class = "removeBtn" >Remove</button>  
                   <label class="switch">
                     <input type="checkbox" class="switchT">
                     <span class="slider round"></span>
@@ -30,12 +30,26 @@ fetch("data.json")
         
         `
     }
-
     placeholder.innerHTML = out;
 
+  ///////////////////////////////////////////////////
+
+  console.log("theyre disabled");
+  //Button remove for card
+  const removeBtn = document.querySelectorAll('.removeBtn');
+
+  removeBtn.forEach((del) =>{
+    del.addEventListener("click",() => {
+    const clickBtn = del.target;
+    if (clickBtn.classList[0] === 'removeBtn'){
+      const wholeList = clickBtn.parentElement;
+      wholeList.remove();
+    }
+    });
+  });
 
 
-    console.log("theyre disabled");
+  //Extention card enable switch
   const filterBtn = document.querySelectorAll(".slider.round");
   filterBtn.forEach((swt) => {
     swt.addEventListener("click", () => {
@@ -45,6 +59,10 @@ fetch("data.json")
           
     });
   });
+
+
+
+
 
 })
 
@@ -70,3 +88,12 @@ tglBtn.forEach((btn) => {
   });
 });
 
+const allBtn = document.querySelectorAll('.allBtn');
+const actBtn = document.querySelectorAll('actBtn');
+const unactBtn = document.querySelectorAll('unactBtn');
+
+allBtn.addEventListener("click", () =>{
+  if(allBtn.classList.contains('active') && extCard.classList.contains('')){
+
+  }
+});
