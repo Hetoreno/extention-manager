@@ -11,7 +11,7 @@ fetch("data.json")
     let out = "";
     for (let extention of extentions){
         out += `
-            <div class="extent-cont" data-att="${extention.isActive ? 'active' : 'unactive'}">
+            <div class="extent-cont" data-att="">
                 <div class="info">
                     <img src="${extention.logo}" alt="">
                     <div class ="descr">
@@ -19,9 +19,9 @@ fetch("data.json")
                         <p>${extention.description}</p>
                     </div>
                 </div>
-                <span>
+                <span class = "switch-btn">
                   <button class = "removeBtn" >Remove</button>  
-                  <label class="switch">
+                  <label class = "switch">
                     <input type="checkbox" class="switchT">
                     <span class="slider round"></span>
                 </label>
@@ -34,66 +34,78 @@ fetch("data.json")
 
   ///////////////////////////////////////////////////
 
+  //Adding disabled placeholder atr for cards upon loading
   console.log("theyre disabled");
-  //Button remove for card
-  const removeBtn = document.querySelectorAll('.removeBtn');
 
-  removeBtn.forEach((del) =>{
-    del.addEventListener("click",() => {
-    const clickBtn = del.target;
-    if (clickBtn.classList[0] === 'removeBtn'){
-      const wholeList = clickBtn.parentElement;
-      wholeList.remove();
-    }
-    });
-  });
+  
+  
 
 
   //Extention card enable switch
   const filterBtn = document.querySelectorAll(".slider.round");
+
   filterBtn.forEach((swt) => {
     swt.addEventListener("click", () => {
 
       console.log("This is a test.");
-      swt.classList.toggle("enabled");
-          
+      const grandparent = swt.closest(".extent-cont");
+
+      if (grandparent) {
+        // Get the current data attribute value
+        const current = grandparent.getAttribute("data-att");
+
+        // Toggle between "enabled" and empty string
+        if (current === "enabled") {
+          grandparent.setAttribute("data-att", "");
+        } else {
+          grandparent.setAttribute("data-att", "enabled");
+        }
+      }
+
     });
   });
 
+  //remove button function
+  const removeBtn = document.querySelectorAll(".removeBtn");
+  removeBtn.forEach((event)=>{
+    event.addEventListener("click",()=>{
+      const removeGp = event.closest(".extent-cont");
+      console.log(removeGp);
+      removeGp.remove();
 
+    })
+  })
 
+  //Filter button
+  const tglBtn = document.querySelectorAll(".filter-btn");
+  const extCard = document.querySelectorAll(".extent-cont");
+  tglBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Filter CSS styling
+      tglBtn.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      
+      // Get the filter value from button (for example: "enabled", "unactive", or "all")
+      const filter = btn.getAttribute("data-att");
 
+      // Loop through all cards
+      extCard.forEach((card) => {
+        const cardStatus = card.getAttribute("data-att"); // the card's data attribute
+
+        if (filter === "all") {
+          card.style.display = "block"; // show all
+        } else if (cardStatus === filter) {
+          card.style.display = "block"; // show only matching ones
+        } else {
+          card.style.display = "none"; // hide others
+        }
+
+      });
+
+ 
+    });
+  });
+
+  
 
 })
-
-//Filter button
-const tglBtn = document.querySelectorAll(".filter-btn");
-const extCard = document.querySelectorAll(".extent-cont");
-
-tglBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // Reset button states
-    tglBtn.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    //work on progress fixxxxxxxxxxxxxxxxxxx
-    filterBtn.forEach((swt) => {
-      if (btn.classList.contains('enabled') && swt.classList.contains('enabled')) {
-        console.log("they’re enabled");
-      }
-
-     });
-
-    
-  });
-});
-
-const allBtn = document.querySelectorAll('.allBtn');
-const actBtn = document.querySelectorAll('actBtn');
-const unactBtn = document.querySelectorAll('unactBtn');
-
-allBtn.addEventListener("click", () =>{
-  if(allBtn.classList.contains('active') && extCard.classList.contains('')){
-
-  }
-});
