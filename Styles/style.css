@@ -76,17 +76,24 @@ p {
   width: 100%;
   border-radius: 15px;
   border: solid rgb(97, 97, 97) 1px;
-  height: 25vh;
+  min-height: 30vh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .extentions-grid .extent-cont .info {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  width: 100%;
 }
 .extentions-grid .extent-cont .info img {
   width: 25%;
-  margin-right: 1rem;
+  height: 100%;
+  margin-right: 2rem;
 }
 .extentions-grid .extent-cont .info .descr {
   width: 75%;
@@ -96,6 +103,16 @@ p {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  min-height: 35%;
+  width: 100%;
+}
+.extentions-grid .extent-cont span button {
+  color: white;
+  background: none;
+  padding: 2rem;
+  border-radius: 25px;
+  border: hsl(226, 11%, 37%) 2px solid;
+  cursor: pointer;
 }
 
 .switch {
