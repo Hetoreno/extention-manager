@@ -21,20 +21,51 @@ $active-click:hsl(3, 77%, 44%);
 @import "extention-container";
 
 /*Desktop View*/
-@media screen and (max-width:1390px) and (min-width:1025px){
+@media screen and (min-width: 1025px){
 
 }
 
 /*Tablet View*/
-@media screen and (max-width:1390px) and (min-width:1025px){
+@media screen and (max-width: 1024px) and (min-width: 768px){
     html{
         font-size: 70%;
+    }
+
+    .extention-cont{
+        nav{
+        @include flex(center, space-between, column); 
+        margin: 2rem 1rem;
+            h2{
+                margin-bottom: 1rem;
+            }
+       }
+    }
+    
+    
+
+    .extentions-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-rows: auto; /* adjusts rows automatically */
     }
 }
 
 /*Mobile View*/
-@media screen and (max-width:1390px) and (min-width:1025px){
+@media screen and (max-width: 501px){
     html{
         font-size: 45%;
     }
+
+    .extention-cont{
+        nav{
+        @include flex(center, space-between, column); 
+        margin: 2rem 1rem;
+        h2{
+            margin-bottom: 1rem;
+        }
+       }
+    }
+    .extentions-grid {
+    grid-template-columns: 1fr; /* single column */
+    grid-template-rows: auto; /* adjusts rows automatically */
+  }
 }
