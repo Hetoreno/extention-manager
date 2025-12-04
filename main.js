@@ -22,7 +22,7 @@ fetch("data.json")
                 <span class = "switch-btn">
                   <button class = "removeBtn" >Remove</button>  
                   <label class = "switch">
-                    <input type="checkbox" class="switchT">
+                    <input type="checkbox" class="switch">
                     <span class="slider round"></span>
                 </label>
                 </span>
